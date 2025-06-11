@@ -1,0 +1,255 @@
+.highlights-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Rubik', sans-serif;
+}
+
+.highlight-bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.glass-feature-box {
+  position: relative;
+  overflow: hidden;
+  top: 29.9%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  color: white;
+  z-index: 1;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-title {
+    position: relative;
+    top: -17px;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+
+.mute-toggle {
+  position: fixed;
+  bottom: 25px;
+  right: 30px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 999;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+.feature-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  margin: 8px 0 4px;
+}
+
+.feature-card p {
+  font-size: 11.5px;
+  font-weight: 400;
+  text-align: center;
+  color: #ddd;
+  line-height: 1.4;
+}
+.arrow-button-container {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+}
+
+.arrow-button {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px 18px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.arrow-button:hover {
+  transform: scale(1.27);
+}
+
+.slide-animation {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+/* Animation classes for slide transition */
+.slide-left {
+  animation: slideLeft 0.5s ease forwards;
+}
+
+.slide-right {
+  animation: slideRight 0.5s ease forwards;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+.feature-title .feature1-text1 {
+  color: white
+}
+
+.feature-title .feature1-text2 {
+  color: #9f5be3; /* or any zen blue you want */
+}
+
+.feature-title .feature2-text1 {
+  color: white
+}
+
+.feature-title .feature2-text2 {
+  color: hsl(138, 79%, 30%); /* or any zen blue you want */
+}
+.feature-title .feature3-text1 {
+  color: white
+}
+
+.feature-title .feature3-text2 {
+  color: #ffeb10; /* or any zen blue you want */
+}
+.feature-title .feature4-text1 {
+  color: white
+}
+
+.feature-title .feature4-text2 {
+  color: #d10606; /* or any zen blue you want */
+}
+.feature-title .feature5-text1 {
+  color: white
+}
+
+.feature-title .feature5-text2 {
+  color: hwb(174 3% 51% / 0.789); /* or any zen blue you want */
+}
+.feature-title .feature6-text1 {
+  color: white
+}
+
+.feature-title .feature6-text2 {
+  color: #373737; /* or any zen blue you want */
+}
+.highlights-container.dark-mode .glass-feature-box {
+  background: rgba(0, 0, 0, 0.3);
+  color: black;
+}
+
+.highlights-container.dark-mode .highlight-title {
+  color: black;
+}
+
+.highlights-container.dark-mode .feature-card {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.highlights-container.dark-mode .feature-card:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.highlights-container.dark-mode .feature-card p {
+  color: black;
+}
+
+.highlights-container.dark-mode .arrow-button {
+  color: black;
+}
+
+.highlights-container.dark-mode .music-controller .glass-circle {
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.highlights-container.dark-mode .feature-card h4 {
+  color: inherit; /* Keeps span colors unchanged */
+}

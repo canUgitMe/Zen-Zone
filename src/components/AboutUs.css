@@ -1,0 +1,131 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Rubik', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Center everything vertically and horizontally */
+.zen-page-center {
+  width: 100vw;
+  height: 100vh;
+  position:absolute;
+  top: 0;
+  left: 0;
+}
+.zen-header-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 11vh;
+  z-index: 2; /* ensure it's above overlay if any */
+}
+
+.zen-header-title h1 {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.zen-header-title p {
+  font-size: 1.25rem;
+  color: white;
+}
+
+/* Grid of features */
+.zen-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 1.3rem;
+  justify-items: center;
+}
+
+/* Glassmorphic Card */
+.zen-glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  color: white;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  width: 100%;
+  max-width: 280px;
+}
+
+.zen-glass-card:hover {
+  transform: scale(1.05) rotateY(5deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.zen-glass-card h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.zen-glass-card p {
+  font-size: 1rem;
+  color: #dcdcdc;
+}
+.zen-prefix {
+  color: #ffffff; /* Zen part color */
+}
+
+.zen-suffix {
+  margin-left: 2px;
+  font-weight: 600;
+}
+
+/* Unique suffix colors for each feature */
+.suffix-0 {
+  color: #ef56fd; /* Scribble */
+}
+
+.suffix-1 {
+  color: #1aa356; /* Wave */
+}
+
+.suffix-2 {
+  color: #c9c430; /* ation */
+}
+
+.suffix-3 {
+  color: #2d3935; /* Zone */
+}
+.zen-page-center.dark-mode {
+  background: linear-gradient(to bottom, #000000, #1c1c1c); /* fallback if image fails */
+  color: black;
+}
+
+.zen-page-center.dark-mode .zen-glass-card {
+  background: rgba(0, 0, 0, 0.1);
+  color: black;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.zen-page-center.dark-mode .zen-glass-card p {
+  color: black;
+}
+
+.zen-page-center.dark-mode .zen-prefix {
+  color: black;
+}
+.zen-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  gap: 2rem;
+  transform: translateY(-10vh); /* 👈 this shifts everything slightly up */
+}

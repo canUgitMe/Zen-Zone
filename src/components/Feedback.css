@@ -1,0 +1,147 @@
+.feedback-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('C:\Users\ARIJIT ADHIKARY\Desktop\VsCode\zen-zone\public\images\Feedback.jpg'); /* ✅ Fix image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.glass-form {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.8s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.feedback-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* ✅ Scoped form elements */
+.Feed {
+  width: 100%;
+  padding: 14px;
+  left: -20px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-family: inherit;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.Feed::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.input-group{
+    transform: translateX(-15px);
+}
+textarea.Feed {
+  height: 120px;
+  resize: none;
+}
+
+.btn {
+  margin-top: 15px;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #377ef0 0%, #c2e9fb 100%);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.thank-you-message {
+  font-size: 1.5rem;
+  padding: 40px 20px;
+  animation: fadeIn 1s ease;
+}
+.thank-you-message.dark{
+    color: black;
+}
+.thank-you-message.light{
+    color: white;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Theme-specific tweaks */
+.feedback-title.dark {
+  color: black;
+}
+.feedback-title.light {
+  color: white;
+}
+
+.feedback-page.dark {
+  color: white;
+}
+.feedback-page.light {
+  color: black;
+}
+
+.feedback-page.dark .Feed {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.feedback-page.light .Feed {
+  background: rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.feedback-page.light .Feed::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.feedback-page.dark .Feed::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btn.dark {
+  color: black;
+}
+.btn.light {
+  color: white;
+}
