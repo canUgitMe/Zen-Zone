@@ -1,0 +1,180 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background-color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centering wrapper */
+.pomodoro-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+  transform: translateY(-30px);
+}
+
+/* Main timer container with glassmorphism */
+.pomodoro-container {
+  position: relative;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+  min-width: 280px;
+  max-width: 340px;
+  width: 100%;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Timer label */
+.timer-mode {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Timer display */
+.timer-display {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.button-group button {
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #20bdf1;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+.light .button-group button{
+    color:black
+}
+.dark .button-group button{
+    color: white;
+}
+.button-group button:hover {
+  background-color: #009acd;
+}
+
+/* Settings popup */
+.settings-popup {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  background: rgba(0, 0, 0, 0.95);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 320px;
+  z-index: 100;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  animation: fadeInPopup 0.3s ease-out;
+}
+
+@keyframes fadeInPopup {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 10%);
+  }
+}
+
+.settings-popup h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.settings-popup label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.settings-popup input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #f0f0f0;
+}
+
+.settings-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.settings-buttons button {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  background-color: #20bdf1;
+  cursor: pointer;
+}
+
+.settings-buttons button:hover {
+  background-color: #009acd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pomodoro-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .settings-popup {
+    max-width: 90%;
+  }
+}
+.pomodoro-container .dark {
+  background: rgba(0, 0, 0, 0.35);
+  color: white;
+}
+
+.pomodoro-container.light {
+  background: rgba(255, 255, 255, 0.4);
+  color: black;
+}
+
+/* Optional: you can override button or popup styles too if needed */
+.settings-popup input {
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+}

@@ -1,0 +1,75 @@
+.zenzone-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.zenzone-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Move controls to top-left with padding and glass-style background */
+.zenzone-controls-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  width: auto;
+  max-width: 300px;
+}
+
+.zenzone-controls {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 16px;
+  border-radius: 12px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.zenzone-controls label {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.zenzone-controls select {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: #ffffffdd;
+  font-weight: 600;
+  color: #000;
+  width: 100%;
+}
+
+.zenzone-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zenzone-buttons button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #ffffffcc;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.zenzone-buttons button:hover {
+  background: #ffffffee;
+}

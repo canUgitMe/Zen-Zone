@@ -10,7 +10,7 @@ body, html {
 .zen-page-center {
   width: 100vw;
   height: 100vh;
-  position:absolute;
+  position: absolute;
   top: 0;
   left: 0;
 }
@@ -20,19 +20,17 @@ body, html {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: 11vh;
+  margin-top: 10vh;
   z-index: 2; /* ensure it's above overlay if any */
 }
 
 .zen-header-title h1 {
   font-size: 3rem;
-  color: white;
   margin-bottom: 1rem;
 }
 
 .zen-header-title p {
   font-size: 1.25rem;
-  color: white;
 }
 
 /* Grid of features */
@@ -128,4 +126,41 @@ body, html {
   padding: 2rem;
   gap: 2rem;
   transform: translateY(-10vh); /* 👈 this shifts everything slightly up */
+}
+.know-more-floating-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  z-index: 999;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.know-more-floating-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+.know-more-floating-btn.dark {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.know-more-floating-btn.light {
+  background: rgba(0, 0, 0, 0.1);
+  color: black;
+}
+.zen-header-title.dark{
+  color: black;
+}
+.zen-header-title.light{
+  color:white;
 }

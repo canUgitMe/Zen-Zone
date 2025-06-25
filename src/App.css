@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap');body, html, .app {
   margin: 0;
   padding: 0;
@@ -40,7 +39,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url('C:\Users\ARIJIT ADHIKARY\Desktop\VsCode\zen-zone\public\images\welcome-bg.jpg');
+  background-image: url('/public/images/welcome-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -77,12 +76,12 @@
   font-weight: 600;
 }
 
-/* Highlight */
-.zen-highlight {
+.dark .zen-highlight {
   color: #252829;
 }
-
-/* Required Asterisk */
+.light .zen-highlight{
+  color: white;
+}
 .required {
   color: red;
   margin-left: 5px;
@@ -141,11 +140,17 @@
   outline: none;
   font-size: 14px;
   background-color: #20bdf1;
-  color: white;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease;
   align-self: center;
+}
+
+.welcome-box button.dark{
+  color: black;
+}
+.welcome-box button.light{
+  color: white;
 }
 
 .welcome-box button:hover {
@@ -191,6 +196,13 @@
   right: 30px;
   z-index: 999;
   cursor: pointer;
+}
+
+.dark .icon{
+    color: #000;
+}
+.light .icon{
+  color:#f0f0f0;
 }
 
 .glass-circle {
@@ -335,8 +347,10 @@ body.dark {
 }
 
 .zone-white {
-  color: black;
+  color: rgb(230, 111, 0);
 }
+
+
 .nav-links li::after {
   content: '';
   position: absolute;
@@ -384,4 +398,280 @@ body.dark {
 .popup {
   animation: popupAnimation 0.5s ease-out;
 }
+.zen-glass-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
 
+.zen-glass {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem 3rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 1.8rem;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.welcome-box-glass {
+  min-width: 280px;
+}
+
+.username-box-glass {
+  min-width: 280px;
+}
+
+.time-box-glass {
+  margin: 2rem auto 0 auto;
+  max-width: 600px;
+  width: calc(100% - 4rem);
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  color: white;
+  font-size: 2rem;
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Light mode overrides */
+.light .zen-glass,
+.light .time-box-glass {
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.hover-glass {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-glass:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+}
+
+.light .hover-glass:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.quote-box-glass {
+  margin-top: 1rem;
+  width: 90%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.quote-box-glass:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+.zen-glass {
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  margin: 1rem auto;
+  width: fit-content;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* Dark Mode glass */
+.dark .zen-glass {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Light Mode glass */
+.light .zen-glass {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for all modes */
+.zen-glass:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* In light mode, make hover effect more subtle and readable */
+.light .zen-glass:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.08);
+}
+.zen-glass-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 4rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.welcome-box-glass,
+.username-box-glass {
+  flex: 1;
+  min-width: 280px;
+  max-width: 45%;
+}
+
+.time-box-glass,
+.quote-box-glass {
+  width: 100%;
+  margin-top: 2rem;
+}
+/* WRAPPER for Top Boxes */
+.top-boxes-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Square Welcome & Username Boxes */
+.welcome-box-glass,
+.username-box-glass {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1rem;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+  font-size: 3rem;
+}
+
+/* Time Box - Compact & Centered */
+.time-box-glass {
+   margin: 2rem auto;
+  min-width: 300px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
+  justify-content: center;
+  text-align: center;
+  font-size: 3rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Quote Box - Wide & Neat */
+.quote-box-glass {
+  margin: 2rem auto;
+  min-width: 300px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.7rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+
+.music-controller.dark-mode .glass-circle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.music-controller.light-mode .glass-circle {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.zen-home-wrapper {
+  position: relative;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers children horizontally */
+  justify-content: center; /* Optional: vertical centering if needed */
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 2rem;
+  text-align: center;
+  z-index: 2;
+}
+
+
+.zen-home-box,
+.zen-quote-box {
+  padding: 1.5rem 2rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.4rem;
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.light .zen-home-box,
+.light .zen-quote-box {
+  background: rgba(255, 255, 255, 0.4);
+  color: black;
+}
+.zen-home-text {
+  font-size: 3rem;
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+
+
+.light .zen-home-text {
+  color: black;
+}

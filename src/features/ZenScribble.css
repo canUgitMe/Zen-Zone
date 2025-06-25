@@ -8,6 +8,15 @@ html, body {
   font-family: 'Rubik', sans-serif;
 }
 
+/* Theme-aware wrapper */
+.scribble-wrapper.light {
+  background-color: #000; /* Light mode still uses dark bg for contrast */
+}
+
+.scribble-wrapper.dark {
+  background-color: #fff;
+}
+
 .scribble-wrapper {
   display: flex;
   justify-content: center;
@@ -16,31 +25,75 @@ html, body {
   width: 100vw;
   height: 100vh;
   z-index: -1;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
 }
 
+/* Scribble box */
 .scribble-box {
   max-width: 600px;
   width: 100%;
   padding: 30px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
+/* Light Mode */
+.scribble-wrapper.light .scribble-box,
+.scribble-wrapper.light .note-display {
+  background: rgba(255, 255, 255, 0.07);
+  color: white;
+}
+
+.scribble-wrapper.light .scribble-title,
+.scribble-wrapper.light .scribble-sub,
+.scribble-wrapper.light .scribble-input,
+.scribble-wrapper.light .note-preview {
+  color: white;
+}
+
+.scribble-wrapper.light .scribble-input {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Dark Mode */
+.scribble-wrapper.dark .scribble-box,
+.scribble-wrapper.dark .note-display {
+  background: rgba(255, 255, 255, 0.7);
+  color: black;
+}
+
+.scribble-wrapper.dark .scribble-title,
+.scribble-wrapper.dark .scribble-sub,
+.scribble-wrapper.dark .scribble-input,
+.scribble-wrapper.dark .note-preview {
+  color: black;
+}
+
+.scribble-wrapper.dark .scribble-input {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Common styles */
 .scribble-title {
   font-size: 26px;
   font-weight: bold;
   margin-bottom: 20px;
-  color: white;
 }
 
 .scribble-sub {
   font-size: 14px;
   margin-bottom: 20px;
-  color: #ddd;
 }
 
 .scribble-input {
@@ -52,7 +105,7 @@ html, body {
   border-radius: 10px;
   resize: none;
   margin-bottom: 20px;
-  margin-left:-10px;
+  margin-left: -10px;
   margin-right: auto;
 }
 
@@ -107,6 +160,7 @@ html, body {
   max-width: 100%;
   overflow: hidden;
   word-wrap: break-word;
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .note-preview {
@@ -126,8 +180,8 @@ html, body {
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: white;
   font-weight: bold;
+  color: inherit;
 }
 
 .arrow-btn:disabled {
@@ -166,64 +220,22 @@ html, body {
   to   { opacity: 0; }
 }
 
-/* No notes message */
 .no-notes-msg {
   color: #645959;
   font-style: italic;
 }
-.dark .scribble-title{
-  color: Black;
-}
-.light .scribble-title{
-  color:hsl(0, 100%, 99%);
-}
-/* Theme-based tweaks */
-.dark .scribble-box,
-.dark .note-display {
-  background: rgba(255, 255, 255, 0.7);
-  color: #222;
-}
-.light .scribble-sub{
-  color:#ddd;
+
+/* Dark Mode Buttons */
+.scribble-wrapper.dark .glass-plus-btn,
+.scribble-wrapper.dark .arrow-btn {
+  color: black;
 }
 
-.light .scribble-box,
-.light .note-display {
-  background: rgba(255, 255, 255, 0.07);
-  color: white;
-}
-
-.dark .glass-plus-btn,
-.dark .scribble-sub {
-  color: #000;
-}
-
-.dark .arrow-btn {
-  color: #000;
-}
-
-.dark .delete-btn {
+.scribble-wrapper.dark .delete-btn {
   color: #ff4d4d;
 }
 
-.scribble-wrapper {
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
-  z-index: -1;
-}
+/* Back Button */
 .back-under-title {
   background-color: rgba(255, 255, 255, 0.2);
   color: black;
@@ -239,11 +251,12 @@ html, body {
 .back-under-title:hover {
   background-color: rgba(255, 255, 255, 0.35);
 }
+
 .scribble-back-btn {
   position: absolute;
   top: 80px;
   left: 30px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding: 0.5rem 1.2rem;
   border-radius: 50px;
   backdrop-filter: blur(10px);
@@ -258,23 +271,22 @@ html, body {
   color: inherit;
 }
 
-/* Light Mode Glassmorphic Style */
 .scribble-back-btn.light {
   background: rgba(255, 255, 255, 0.25);
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Dark Mode Glassmorphic Style */
 .scribble-back-btn.dark {
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
 }
+
 .scribble-back-btn:hover {
   transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 0.4);
 }
+
 .scribble-back-btn.light:hover {
   background-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -283,4 +295,21 @@ html, body {
 .scribble-back-btn.dark:hover {
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+.zen-white .light{
+  color: white;
+}
+.zen-white .dark{
+  color: black;
+}
+
+.scribble-blue {
+  color: #9f5be3; /* Or a deeper zen blue you prefer */
+}
+
+/* Prevent theme override */
+.scribble-title .zen-white,
+.scribble-title .scribble-blue {
+  transition: none !important;
+  filter: none !important;
 }

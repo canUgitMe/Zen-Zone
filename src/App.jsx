@@ -4,7 +4,13 @@ import Highlights from './components/Highlights';
 import AboutUs from './components/AboutUs';
 import ZenScribble from './features/ZenScribble';
 import Feedback from './components/Feedback';
-
+import Team from './components/Team';
+import ZenaTion from './features/ZenaTion'; 
+import ZenTasks from './features/ZenTasks'
+import ZonaLize from './features/ZonaLize';
+import ZenWave from './features/ZenWave';
+import PomodoroTimer from './components/PomodoroTimer';
+import ZenZone from './features/ZenZone';
 
 const App = () => {
   const [name, setName] = useState('');
@@ -16,12 +22,34 @@ const App = () => {
   const [muted, setMuted] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [page, setPage] = useState('home');
-
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
   const audioRef = useRef(null);
 
   useEffect(() => {
     document.body.className = isDarkMode ? 'dark' : 'light';
   }, [isDarkMode]);
+
+   // Live clock on Home page
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+   const getQuoteForToday = () => {
+    const quotes = {
+      Sunday: "Take it slow and give your soul a chance to catch up.",
+      Monday: "New week, new energy. Let's begin fresh.",
+      Tuesday: "Keep grinding — progress is progress. ",
+      Wednesday: "Midweek reminder: you’ve got this. ",
+      Thursday: "Almost there. Stay focused, stay Zen. ",
+      Friday: "Celebrate your wins, big or small.",
+      Saturday: "Relax. Recharge. Reignite. "
+    };
+    const day = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+    return quotes[day] || "Welcome to your ZenZone ✨";
+  };
 
   const validate = () => {
     let valid = true;
@@ -80,7 +108,7 @@ const App = () => {
 
   const renderContent = () => {
   switch (page) {
- case 'home':
+case 'home':
   return (
     <>
       <video className="bg-video" autoPlay loop muted playsInline>
@@ -92,23 +120,28 @@ const App = () => {
         <source src={media.audio} type="audio/mp3" />
       </audio>
 
-      <div className="music-controller" onClick={toggleMute}>
+      <div className={`music-controller ${isDarkMode ? 'dark-mode' : 'light-mode'}`} onClick={toggleMute}>
         <div className="glass-circle">
           {muted ? (
             <svg className="icon" viewBox="0 0 24 24">
-              <path fill="white" d="M16 7H14V17H16V7ZM10 7H8V17H10V7Z" />
+              <path fill={isDarkMode ? 'white' : 'black'} d="M8 5v14l11-7z" />
             </svg>
           ) : (
             <svg className="icon" viewBox="0 0 24 24">
-              <path fill="white" d="M8 5v14l11-7z" />
+              <path fill={isDarkMode ? 'white' : 'black'} d="M16 7H14V17H16V7ZM10 7H8V17H10V7Z" />
             </svg>
           )}
         </div>
       </div>
 
-      {/* 👇 Display user's name in center */}
-      <div className="username-display">
-        Hey, {name}<br/>Welcome to ZenZone!
+      <div className="zen-home-wrapper">
+<div className="zen-home-text">
+  Hey, <span className="zen-highlight">{name}</span>! Welcome to the ZenZone.
+</div>
+        <div className="zen-glass zen-quote-box">
+          {getQuoteForToday()}
+        </div>
+        <PomodoroTimer darkMode={isDarkMode}/>
       </div>
     </>
   );
@@ -122,14 +155,34 @@ const App = () => {
           setPage={setPage}
         />
       );
+
       case 'zenscribble':
-      return <ZenScribble />;
+  return <ZenScribble darkMode={isDarkMode} setPage={setPage} />;
+
+case 'zenwave':
+  return <ZenWave darkMode={isDarkMode} setPage={setPage} />;
+
+case 'zentasks':
+  return <ZenTasks darkMode={isDarkMode} setPage={setPage} />;
+
+case 'zenation':
+  return <ZenaTion darkMode={isDarkMode} setPage={setPage} />;
+
+case 'zonalize':
+  return <ZonaLize darkMode={isDarkMode} setPage={setPage} />;
+
+case 'zenzone':
+  return <ZenZone darkMode={isDarkMode} setPage={setPage} />;
+
 
     case 'about':
-      return <AboutUs isDarkMode={isDarkMode} />;
+  return <AboutUs isDarkMode={isDarkMode} setPage={setPage} />;
+
+  case 'team':
+  return <Team isDarkMode={isDarkMode} setPage={setPage} />;
 
     case 'feedback':
-      return <Feedback darkMode={isDarkMode}/>;
+       return <Feedback darkMode={isDarkMode}/>;
 
     default:
       return null;
@@ -174,7 +227,7 @@ const App = () => {
             </label>
             {timeError && <div className="error-message">{timeError}</div>}
 
-            <button onClick={handleStart}>Start My Break</button>
+            <button onClick={handleStart} className={`break-button ${isDarkMode ? 'light':'dark'}`}>Start My Break</button>
           </div>
         </div>
       ) : (
@@ -186,7 +239,7 @@ const App = () => {
             <ul className="nav-links centered">
               <li onClick={() => setPage('home')}>Home</li>
               <li onClick={() => setPage('highlights')}>Zones</li>
-              <li onClick={() => setPage('about')}>About us</li>
+              <li onClick={() => setPage('about')}>About</li>
               <li onClick={() => setPage('feedback')}>Feedback</li>
             </ul>
           </nav>

@@ -7,41 +7,47 @@ const Highlights = ({ darkMode, muted, toggleMute, audioRef, setPage }) => {
   const [direction, setDirection] = useState('');
 
   const featureSlides = [
-    [
-      {
-        icon: `${process.env.PUBLIC_URL}/icons/feature1.png`,
-        title: `<span class='feature1-text1'>Zen</span><span class='feature1-text2'>Scribble</span>`,
-        desc: 'A Zen-Way To Scribble!',
-      },
-      {
-        icon: `${process.env.PUBLIC_URL}/icons/feature2.png`,
-        title: `<span class='feature2-text1'>Zen</span><span class='feature2-text2'>Wave</span>`,
-        desc: 'A Zen-Way To Musify!',
-      },
-      {
-        icon: `${process.env.PUBLIC_URL}/icons/feature3.png`,
-        title: `<span class='feature3-text1'>Zen</span><span class='feature3-text2'>Tasks</span>`,
-        desc: 'A Zen-Way To-Do!',
-      },
-    ],
-    [
-      {
-        icon: `${process.env.PUBLIC_URL}/icons/feature4.png`,
-        title: `<span class='feature4-text1'>Zena</span><span class='feature4-text2'>Tion</span>`,
-        desc: 'A Zen-Way To calm!',
-      },
-      {
-        icon: `${process.env.PUBLIC_URL}/icons/feature5.png`,
-        title: `<span class='feature5-text1'>Zona</span><span class='feature5-text2'>Lize</span>`,
-        desc: 'A Zen-Way To Rise!',
-      },
-      {
-        icon: `${process.env.PUBLIC_URL}/icons/feature6.png`,
-        title: `<span class='feature6-text1'>Zen</span><span class='feature6-text2'>Zone</span>`,
-        desc: 'A Zen-Way To ZenZone!',
-      },
-    ],
-  ];
+  [
+    {
+      icon: `${process.env.PUBLIC_URL}/icons/feature1.png`,
+      title: `<span class='feature1-text1'>Zen</span><span class='feature1-text2'>Scribble</span>`,
+      desc: 'A Zen-Way To Scribble!',
+      pageKey: 'zenscribble',
+    },
+    {
+      icon: `${process.env.PUBLIC_URL}/icons/feature2.png`,
+      title: `<span class='feature2-text1'>Zen</span><span class='feature2-text2'>Wave</span>`,
+      desc: 'A Zen-Way To Musify!',
+      pageKey: 'zenwave',
+    },
+    {
+      icon: `${process.env.PUBLIC_URL}/icons/feature3.png`,
+      title: `<span class='feature3-text1'>Zen</span><span class='feature3-text2'>Tasks</span>`,
+      desc: 'A Zen-Way To-Do!',
+      pageKey: 'zentasks',
+    },
+  ],
+  [
+    {
+      icon: `${process.env.PUBLIC_URL}/icons/feature4.png`,
+      title: `<span class='feature4-text1'>Zena</span><span class='feature4-text2'>Tion</span>`,
+      desc: 'A Zen-Way To Calm!',
+      pageKey: 'zenation',
+    },
+    {
+      icon: `${process.env.PUBLIC_URL}/icons/feature5.png`,
+      title: `<span class='feature5-text1'>Zona</span><span class='feature5-text2'>Lize</span>`,
+      desc: 'A Zen-Way To Rise!',
+      pageKey: 'zonalize',
+    },
+    {
+      icon: `${process.env.PUBLIC_URL}/icons/feature6.png`,
+      title: `<span class='feature6-text1'>Zen</span><span class='feature6-text2'>Zone</span>`,
+      desc: 'A Zen-Way To ZenZone!',
+      pageKey: 'zenzone',
+    },
+  ],
+];
 
   const toggleSlide = () => {
     setDirection(slideIndex === 0 ? 'left' : 'right');
@@ -64,15 +70,15 @@ const Highlights = ({ darkMode, muted, toggleMute, audioRef, setPage }) => {
         />
       </audio>
 
-      <div className="music-controller" onClick={toggleMute}>
+      <div className={`music-controller ${darkMode ? 'dark' : 'light'}`} onClick={toggleMute}>
         <div className="glass-circle">
           {muted ? (
             <svg className="icon" viewBox="0 0 24 24">
-              <path fill="white" d="M16 7H14V17H16V7ZM10 7H8V17H10V7Z" />
+              <path d="M8 5v14l11-7z" />
             </svg>
           ) : (
             <svg className="icon" viewBox="0 0 24 24">
-              <path fill="white" d="M8 5v14l11-7z" />
+              <path d="M16 7H14V17H16V7ZM10 7H8V17H10V7Z" />
             </svg>
           )}
         </div>
@@ -82,7 +88,7 @@ const Highlights = ({ darkMode, muted, toggleMute, audioRef, setPage }) => {
         <h2 className="highlight-title">Zones</h2>
         <div className={`features-grid slide-${direction}`}>
           {featureSlides[slideIndex].map((feature, index) => (
-            <div className="feature-card" onClick={() => setPage('zenscribble')}>
+            <div className="feature-card" key={index} onClick={() => setPage(feature.pageKey)}>
               <img src={feature.icon} alt={`Feature ${index + 1}`} />
               <h4
                 className="feature-title"

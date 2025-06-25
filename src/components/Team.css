@@ -1,0 +1,164 @@
+.team-page {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  background: var(--bg-color);
+  transition: background 0.3s ease;
+}
+
+.team-page.dark {
+  --bg-color: #121212;
+  color: white;
+}
+
+.team-page.light {
+  --bg-color: #f9f9f9;
+  color: black;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.team-header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-members-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  color: inherit;
+}
+
+.back-btn {
+  position: absolute;
+  top: 2rem;
+  left: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: inherit;
+
+  /* Glassmorphic Styling */
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 10; /* Just in case! */
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+.team-page {
+  position: relative; /* for ::before overlay */
+  min-height: 100vh;  /* full viewport height */
+  padding: 4rem 2rem;
+  color: inherit;
+
+  /* background image setup */
+  background: none; /* remove from here, we'll use ::before for better control */
+  overflow: hidden; /* just in case */
+  z-index: 1;
+}
+
+/* Use ::before pseudo-element to show full screen bg image */
+.team-page::before {
+  content: "";
+  position: fixed; /* FIXED to cover entire screen, even on scroll */
+  top: 0; 
+  left: 0; 
+  width: 100vw; /* full viewport width */
+  height: 100vh; /* full viewport height */
+  background: url('C:\Users\ARIJIT ADHIKARY\Desktop\VsCode\zen-zone\public\images\team-bg.jpg') no-repeat center center;
+  background-size: cover;
+  filter: brightness(0.7); /* darken for better text contrast, optional */
+  z-index: -1; /* behind everything */
+}
+.team-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.team-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  background: rgba(255, 255, 255, 0.2);
+}
+.team-members-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.dark .arijit {
+  color: white; 
+}
+.light .arijit {
+  color: black; 
+}
+
+.adhikary {
+  color: #ff8c69;
+}
+
+.dark .anupama {
+  color: white; 
+}
+.light .anupama {
+  color: black;
+}
+
+.bain {
+  color: #ffc26f;
+}
+
+.dark .rishave {
+  color: white; /* mint glow */
+}
+.light .rishave {
+  color: black; /* mint glow */
+}
+
+.ghosh {
+  color: #ffaaee; /* pastel pink */
+}
+
+.dark .annwesha {
+  color: white; /* fresh green */
+}
+.light .annwesha {
+  color: black; /* fresh green */
+}
+
+.naha {
+  color: #ef56fd; /* soft lilac */
+}

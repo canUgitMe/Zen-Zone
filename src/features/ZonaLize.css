@@ -1,0 +1,412 @@
+.zonalize-bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.6);
+}
+
+.zonalize-container {
+  position: relative;
+  z-index: 1;
+  background: transparent !important; /* forcefully remove white bg */
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Rubik', sans-serif;
+  color: #fff; /* white or light text to contrast video */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.zonalize-title {
+transform: translateY(-20%);
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+.zonalize-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.zonalize-glass-box {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 20px;
+  padding: 3rem 4rem;
+  width: 90vw;
+  height: 80vh;
+  max-width: 400px;
+  max-height: 235px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  z-index: 2;
+  text-align: center;
+  transform: translateY(-30%);
+}
+
+.mood-selector h3 {
+  margin-bottom: 1rem;
+}
+
+.mood-buttons button {
+  margin: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s;
+}
+
+.mood-buttons button:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.4);
+}
+
+.content h3 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-top: -7.5rem;
+}
+
+.quote-box, .activity-box {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  margin: 0.8rem 0;
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+.controls button {
+  flex: 1; /* buttons share space equally */
+  min-width: 140px; /* ensures they don't become too narrow */
+  margin: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: #66a6ff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.controls button:hover {
+  background: #4f8fe0;
+}
+
+
+@media (max-width: 500px) {
+  .quote-box, .activity-box {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .zonalize-title {
+    font-size: 2rem;
+  }
+
+  .controls button {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+.mood-selector-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 2rem; /* Removed top padding */
+  margin-top: -7rem; /* 👈 Pulls the entire content slightly upward */
+  box-sizing: border-box;
+}
+
+.mood-selector-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  max-width: 90%;
+}
+.dropdown-wrapper {
+  left:-25px;
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  bottom: -14px;
+}
+
+/* 🧠 Common base input styling */
+.dropdown-input {
+  width: 100%;
+  padding: 0.6rem 2.5rem 0.6rem 1rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 2;
+}
+
+/* 🔍 Position the icon */
+.search-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  pointer-events: none;
+  z-index: 3;
+  transition: color 0.3s ease;
+}
+
+/* 🌞 Light mode */
+.zonalize-container.light .dropdown-input {
+  background: rgba(255, 255, 255, 0.3);
+  color: #252829;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.zonalize-container.light .dropdown-input::placeholder {
+  color: #4a4a4a;
+}
+
+.zonalize-container.light .search-icon {
+  color: #252829;
+}
+
+/* 🌚 Dark mode */
+.zonalize-container.dark .dropdown-input {
+  background: rgba(0, 0, 0, 0.3);
+  color: #f1f1f1;
+  box-shadow: 0 6px 20px rgba(255,255,255,0.05);
+}
+
+.zonalize-container.dark .dropdown-input::placeholder {
+  color: #bbbbbb;
+}
+
+.zonalize-container.dark .search-icon {
+  color: #f1f1f1;
+}
+
+/* Menu container */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 117%;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+/* Menu item */
+.dropdown-item {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+/* 🌞 Light mode */
+.zonalize-container.light .dropdown-menu {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.zonalize-container.light .dropdown-item {
+  color: #252829;
+}
+
+.zonalize-container.light .dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 🌚 Dark mode */
+.zonalize-container.dark .dropdown-menu {
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255,255,255,0.05);
+}
+
+.zonalize-container.dark .dropdown-item {
+  color: #f1f1f1;
+}
+
+.zonalize-container.dark .dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.search-icon {
+  position: absolute;
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 1.2rem;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.dark .feature5-text1 {
+  color: white;
+}
+.light .feature5-text1 {
+  color: black;
+}
+.feature5-text2 {
+  color: hwb(174 21% 37%);
+}
+.back-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  z-index: 10;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+/* 🌞 Light Mode */
+.zonalize-container.light .back-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: #252829;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.zonalize-container.light .back-button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.02);
+}
+
+/* 🌚 Dark Mode */
+.zonalize-container.dark .back-button {
+  background: rgba(0, 0, 0, 0.25);
+  color: #f1f1f1;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+}
+
+.zonalize-container.dark .back-button:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transform: scale(1.02);
+}
+
+/* LIGHT MODE */
+.zonalize-container.light {
+  color: #252829; /* default dark text for light mode */
+  background-color: #ffffff; /* fallback in case moodColor is missing */
+}
+
+.zonalize-container.light .quote-box,
+.zonalize-container.light .activity-box,
+.zonalize-container.light .dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #252829;
+}
+
+/* DARK MODE */
+.zonalize-container.dark {
+  color: #f1f1f1; /* light text for dark mode */
+  background-color: #1a1a1a; /* fallback in case moodColor is missing */
+}
+
+.zonalize-container.dark .quote-box,
+.zonalize-container.dark .activity-box,
+.zonalize-container.dark .dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #f1f1f1;
+}
+.zonalize-container.light .zonalize-glass-box {
+  background: rgba(161, 161, 161, 0.3);
+  color: #181818;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.zonalize-container.dark .zonalize-glass-box {
+  background: rgba(0, 0, 0, 0.3);
+  color: #f1f1f1;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+
+.zonalize-container {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.zonalize-container .quote-box,
+.zonalize-container .activity-box,
+.zonalize-container .dropdown-menu {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.music-controller .icon path {
+  transition: fill 0.3s ease;
+}
+
+/* Dark mode: white icon */
+.music-controller.dark .icon path {
+  fill: white;
+}
+
+/* Light mode: black icon */
+.music-controller.light .icon path {
+  fill: black;
+}
+
+/* Optional glass-circle styling for both modes */
+.music-controller.dark .glass-circle {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.music-controller.light .glass-circle {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

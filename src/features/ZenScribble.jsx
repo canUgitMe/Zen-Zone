@@ -114,11 +114,15 @@ const ZenScribble = ({ darkMode, setPage }) => {
   className={`scribble-back-btn ${darkMode ? 'dark' : 'light'}`}
   onClick={() => setPage('highlights')}
 >
-  ⬅
+  ← Back
 </button>
 
       <div className="scribble-box glassy">
-        <h2 className="scribble-title">📝 ZenScribble</h2>
+        <h2 className="scribble-title">
+  📝 <span className="zen-white">Zen</span><span className="scribble-blue">Scribble</span>
+</h2>
+
+
         <p className="scribble-sub">Let your thoughts flow mindfully...</p>
 
         <textarea

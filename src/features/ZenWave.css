@@ -1,0 +1,304 @@
+.zenwave-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Rajdhani', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.video-bg iframe {
+  position: fixed;
+  top: -13vh;
+  left: 0;
+  width: 140vw;
+  height: 140vh;
+  transform: scale(1.1);
+  transform-origin: center;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  border: none;
+
+}
+
+.zenwave-title {
+  font-size: 2.8rem;
+  margin-top: -20px;
+  font-weight: bold;
+}
+
+.zen-text {
+  color: black;
+}
+
+.wave-text {
+  color: #2ecc71;
+}
+
+.dark .zen-text {
+  color: white;
+}
+.light.control-btn{
+    color: white;
+
+}
+.dark .control-btn{
+    color: black;
+}
+.zenwave-ui {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.zenwave-title {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: #2ecc71;
+}
+
+.zenwave-input {
+  padding: 0.75rem 1rem;
+  width: 70%;
+  max-width: 600px;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.zenwave-button {
+  padding: 0.6rem 1.5rem;
+  background-color: #2ecc71;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.light .zenwave-button{
+    color: rgb(0, 0, 0);
+}
+.zenwave-button:hover {
+  background-color: #27ae60;
+}
+
+.zenwave-error {
+  color: #ff5e5e;
+  margin-top: 0.8rem;
+}
+
+.zenwave-player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+  transform: translateX(-5px);
+}
+
+.zenwave-center-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.control-btn {
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+
+  padding: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+.control-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.duration-container {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 300px;
+  position: relative;
+}
+
+.duration-time {
+  color: #ffffffcc;
+  font-size: 0.85rem;
+  align-self: flex-end;
+  margin-bottom: 0.2rem;
+  margin-right: 2px;
+}
+
+.seek-bar {
+  width: 100%;
+  appearance: none;
+  height: 6px;
+  border-radius: 4px;  outline: none;
+  cursor: pointer;
+}
+.dark .seek-bar{
+    color:rgba(255, 255, 255, 0.4);
+}
+.light .seek-bar{
+  color: black;
+}
+
+.seek-bar::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2ecc71;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.seek-bar::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2ecc71;
+  cursor: pointer;
+}
+
+.dark .zenwave-ui {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.dark .zenwave-title {
+  color: #2ecc71;
+}
+
+.dark .zenwave-input {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.dark .zenwave-button {
+  background-color: #2ecc71;
+  color: rgb(255, 253, 253);
+}
+
+.dark .zenwave-button:hover {
+  background-color: #27ae60;
+}
+
+.dark .control-btn {
+  color: rgb(255, 255, 255);
+}
+
+.dark .seek-bar {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.dark .seek-bar::-webkit-slider-thumb {
+  background: #2ecc71;
+}
+.zenwave-beat-bars {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+  height: 40px;
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto 1.5rem;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 8px 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.beat-bar {
+  width: 4px;
+  height: 20px;
+  background: #2ecc71;
+  border-radius: 4px;
+  animation: pulse 1s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.05s);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1.2);
+  }
+}
+
+.zenwave-back-btn {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  z-index: 20;
+  transition: 0.2s ease;
+}
+
+.zenwave-back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.dark .zenwave-back-btn {
+  color: #ffffff;
+}
+
+.light .zenwave-back-btn {
+  color: #000000;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}

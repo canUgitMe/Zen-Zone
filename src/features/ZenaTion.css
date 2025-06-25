@@ -1,0 +1,369 @@
+.zenation-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: 'Rubik', sans-serif;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--bg-color, transparent);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.zenation-page.dark {
+  --bg-color: #121212;
+  color: #eee;
+}
+
+.background-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.7);
+}
+
+.gradient-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  z-index: -2;
+  filter: brightness(0.85);
+}
+
+/* Back Button */
+.back-btn {
+  position: absolute; /* instead of fixed */
+  top: 2.5rem;        /* move down a bit */
+  left: 0.7rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: inherit;
+  user-select: none;
+  z-index: 10;
+}
+
+/* Controls panel */
+.controls-panel {
+  position: fixed;
+  top: 5rem;
+  right: 1.5rem;
+  background: rgba(255 255 255 / 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  padding: 1rem 1.5rem;
+  max-width: 280px;
+  color: inherit;
+  user-select: none;
+  z-index: 10;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+}
+
+.controls-panel.dark {
+  background: rgba(18, 18, 18, 0.5);
+  color: #eee;
+}
+
+.control-group {
+  margin-bottom: 1rem;
+}
+
+.control-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.buttons-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.buttons-row button {
+  background: rgba(255 255 255 / 0.3);
+  border: none;
+  padding: 0.35rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  color: inherit;
+}
+
+.buttons-row button:hover:not(:disabled) {
+  background: rgba(255 255 255 / 0.55);
+}
+
+.buttons-row button.active {
+  background: #66a6ff;
+  color: white;
+}
+
+.buttons-row button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+select {
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-top: 0.3rem;
+  cursor: pointer;
+}
+
+.mute-btn-wrapper {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999; /* make sure it's on top */
+}
+
+.mute-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: inherit;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.mute-btn:hover {
+  background: rgba(255, 255, 255, 0.55);
+  transform: scale(1.1);
+}
+
+/* Breathing container */
+.breathing-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: center;
+}
+
+.breathing-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 40px rgba(102, 166, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 4s ease-in-out, box-shadow 4s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.breathing-circle.inhale {
+  transform: scale(1.25);
+  box-shadow: 0 0 80px rgba(102, 166, 255, 0.8);
+}
+
+.breathing-circle.exhale {
+  transform: scale(0.85);
+  box-shadow: 0 0 25px rgba(102, 166, 255, 0.3);
+}
+
+
+.breathing-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  user-select: none;
+  color: inherit;
+  pointer-events: none;
+  text-align: center;
+}
+
+/* Timer display */
+.timer-display {
+  font-size: 1.5rem;
+  font-weight: 600;
+  user-select: none;
+  color: inherit;
+}
+
+/* Start/Pause button */
+.start-stop-btn {
+  padding: 0.6rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255 255 255 / 0.3);
+  background: rgba(255 255 255 / 0.15);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+}
+
+.start-stop-btn:hover {
+  background: rgba(255 255 255 / 0.3);
+  border-color: rgba(255 255 255 / 0.6);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .breathing-circle {
+    width: 130px;
+    height: 130px;
+  }
+
+  .breathing-text {
+    font-size: 1.5rem;
+  }
+
+  .timer-display {
+    font-size: 1.2rem;
+  }
+
+  .controls-panel {
+    position: static;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    backdrop-filter: none;
+    background: none;
+    color: inherit;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .buttons-row button {
+    flex-grow: 1;
+  }
+}
+.below-circle-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem; /* Adjust spacing as needed */
+  gap: 0.8rem;
+}
+.preferences-wrapper {
+  position: fixed;
+  top: 5rem;
+  right: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 20;
+}
+
+.preferences-toggle {
+  position: relative;
+  left: -8px; /* move left */
+  top: 8px;     /* move down */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: inherit;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 0.5rem;
+  z-index: 21;
+}
+
+.controls-panel.glassmorphic {
+  width: 280px; /* optional fixed width */
+  max-width: 90vw;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border-radius: 15px;
+  padding: 1rem 1.5rem;
+  color: inherit;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+}
+
+.preferences-toggle:hover {
+  background: rgba(255 255 255 / 0.25);
+}
+.preferences-wrapper .controls-panel {
+  top: 2.5rem; /* increase this to move it down more */
+  right: 0.5rem; /* keep it aligned right */
+  position: absolute; /* or fixed */
+}
+
+/* Animate dropdown */
+.controls-panel {
+  margin-top: 0.8rem;
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.light .breathing-container{
+  color: black;
+}
+.dark .breathing-container{
+  color:white
+}
+.light .start-stop-btn{
+  color: black;
+}
+.dark .start-stop-btn{
+  color: white;
+}
+
+.light .preferences-wrapper{
+  color: black;
+}
+.dark .preferences-wrapper{
+  color: white;
+}
+
+.light .back-btn{
+  color: black;
+}
+.dark .back-btn{
+  color: white;
+}
+.light .mute-btn{
+  color: black;
+}
+.dark .mute-btn{
+  color: white;
+}

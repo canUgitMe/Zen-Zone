@@ -10,13 +10,33 @@ const Feedback = ({ darkMode }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formData.name && formData.email && formData.message) {
-      setFadeOut(true); // Trigger fade-out
-      setTimeout(() => setSubmitted(true), 500); // Wait for fade before switching
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (formData.name && formData.email && formData.message) {
+    try {
+      const res = await fetch('http://localhost:5000/api/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        console.log('✅ Submitted:', data);
+        setFadeOut(true);
+        setTimeout(() => setSubmitted(true), 500);
+      } else {
+        alert('❌ Submission failed. Try again!');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('❌ Server error. Check console.');
     }
-  };
+  }
+};
+
 
   return (
     <div className={`feedback-page ${darkMode ? 'dark' : 'light'}`}>
@@ -53,12 +73,12 @@ const Feedback = ({ darkMode }) => {
                 required
               />
               </div>
-              <button className="btn" type="submit">Submit</button>
+              <button className={`btn ${darkMode ? 'light' : 'dark'}`} type="submit">Submit</button>
             </form>
           </>
         ) : (
           <div className="thank-you-message">
-            Thank you, {formData.name}, for sharing your Zone with us Buddy!
+            Thank you, {formData.name}, for sharing your Zone with us!
           </div>
         )}
       </div>
