@@ -25,10 +25,10 @@ const AboutUs = ({ isDarkMode, setPage }) => {
     <div className={`zen-page-center ${isDarkMode ? '' : 'dark-mode'}`}>
       <div
         className="zen-page-center"
-        style={{
-          background: "url('/images/zen-bg.jpg') no-repeat center center fixed",
+style={{
+          background: `url(${process.env.PUBLIC_URL}/images/zen-bg.jpg) no-repeat center center fixed`,
           backgroundSize: 'cover',
-        }}
+          }}
       >
         <div className="zen-content-wrapper">
           <div className="zen-header-title">

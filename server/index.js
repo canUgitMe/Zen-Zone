@@ -7,15 +7,17 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
+// Middlewares
 app.use(cors());
-app.use(express.json()); // Body parser for POST
+app.use(express.json());
 
-// YouTube API Key
-const YOUTUBE_API_KEY = 'AIzaSyBAHfKwhtQHaZAYhsdu1idEhVoymwfwG_c';
-console.log('✅ YouTube API Key Loaded:', YOUTUBE_API_KEY);
+// ✅ Load YouTube API Key from .env
+const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
+if (!YOUTUBE_API_KEY) {
+  console.warn('⚠️ Missing YOUTUBE_API_KEY in .env');
+}
 
-// YouTube Search Route
+// 🔍 YouTube Search Endpoint
 app.get('/api/search', async (req, res) => {
   const { query } = req.query;
 
@@ -46,16 +48,22 @@ app.get('/api/search', async (req, res) => {
   }
 });
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI)
+// ✅ MongoDB Connection
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
   .then(() => console.log('✅ MongoDB connected'))
   .catch((err) => console.error('❌ MongoDB connection error:', err));
 
-// Feedback Route
+// ✅ Routes
 const feedbackRoutes = require('./feedback/feedback.routes');
-app.use('/api', feedbackRoutes); // POST /api/feedback
+const userRoutes = require('./user.routes');
 
-// Start server
+app.use('/api/feedback', feedbackRoutes);  // POST /api/feedback
+app.use('/api/users', userRoutes);         // POST /api/users/login, /register
+
+// ✅ Start Server
 app.listen(PORT, () => {
-  console.log(`✅ Backend running at http://localhost:${PORT}`);
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
 });

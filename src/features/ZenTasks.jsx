@@ -41,7 +41,6 @@ const ZenTasks = ({ darkMode, setPage }) => {
           setReminderPopup(task.text);
           setActiveReminder(index);
 
-          // Mark reminder as shown
           const updatedTasks = [...tasks];
           updatedTasks[index].reminderShown = true;
           setTasks(updatedTasks);

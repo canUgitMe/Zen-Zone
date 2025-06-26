@@ -241,11 +241,9 @@
   background: rgba(0, 0, 0, 0.3);
   color: black;
 }
-
 .highlights-container.dark-mode .highlight-title {
   color: black;
 }
-
 .highlights-container.dark-mode .feature-card {
   background: rgba(0, 0, 0, 0.1);
 }

@@ -1,0 +1,81 @@
+
+
+.login-container {
+height: 100vh;
+width: 100vw;
+display: flex;
+align-items: center;
+justify-content: center;
+background: url('C:\Zen-Zone\zen-zone\public\images\welcome-bg.jpg') no-repeat center center;
+background-size: cover;
+position: relative;
+overflow: hidden;
+font-family: 'Rubik', sans-serif;
+}
+
+.login-box {
+background: rgba(255, 255, 255, 0.08);
+backdrop-filter: blur(6px);
+border-radius: 24px;
+padding: 3rem 4rem;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+width: 100%;
+max-width: 350px;
+max-height: 300px;
+z-index: 10;
+font-family: 'Rajdhani', sans-serif;
+color: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.login-box input {
+width: 100%;
+translate: -8px;
+padding: 0.8rem 1rem;
+margin: 0.5rem 0 1.2rem 0;
+border-radius: 10px;
+border: none;
+outline: none;
+background: #f3f3f3;
+font-family: 'Rubik', sans-serif;
+font-size: 1rem;
+}
+
+.login-title {
+font-size: 2.5rem;
+font-weight: 700;
+margin-bottom: 2rem;
+text-align: center;
+color: #ffffff;
+}
+.zen-wh {
+color: white;
+}
+
+.zone-bl {
+color: black;
+}
+
+.break-button1 {
+translate: 125px;
+padding: 0.8rem 1.5rem;
+border-radius: 10px;
+border: none;
+font-weight: bold;
+font-size: 1rem;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+
+
+.error-message {
+color: #ff5c5c;
+margin-bottom: 1rem;
+font-size: 0.95rem;
+}
+
+
+

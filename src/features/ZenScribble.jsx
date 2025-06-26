@@ -102,13 +102,11 @@ const ZenScribble = ({ darkMode, setPage }) => {
   return (
     <div
       className={`scribble-wrapper ${darkMode ? 'light' : 'dark'}`}
-      style={{
-        background: "url('/images/Scribble.jpg') no-repeat center center fixed",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-        width: "100%",
-        height: "100vh",
-      }}
+style={{
+  background: `url(${process.env.PUBLIC_URL}/images/Scribble.jpg) no-repeat center center fixed`,
+  backgroundSize: '100% auto',
+  backgroundAttachment: 'fixed',
+}}
     >
     <button
   className={`scribble-back-btn ${darkMode ? 'dark' : 'light'}`}
