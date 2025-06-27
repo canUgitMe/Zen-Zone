@@ -14,7 +14,7 @@ app.use(express.json());
 // ✅ Load YouTube API Key from .env
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 if (!YOUTUBE_API_KEY) {
-  console.warn('⚠️ Missing YOUTUBE_API_KEY in .env');
+  console.warn('⚠ Missing YOUTUBE_API_KEY in .env');
 }
 
 // 🔍 YouTube Search Endpoint
