@@ -1,75 +1,213 @@
-.zenzone-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  font-family: 'Rajdhani', sans-serif;
+.zen-zone-wrapper {
+  padding: 2rem;
+  text-align: center;
 }
 
-.zenzone-video {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  top: 0;
-  left: 0;
-  z-index: -1;
+.zen-zone-heading {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.ZoneZZ{
+color: white;
+}
+.ZoneBB{
+  color:black;
 }
 
-/* Move controls to top-left with padding and glass-style background */
-.zenzone-controls-container {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
-  width: auto;
-  max-width: 300px;
+
+.zen-zone-subtext {
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
 }
 
-.zenzone-controls {
-  background: rgba(0, 0, 0, 0.55);
-  padding: 16px;
-  border-radius: 12px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+.zen-zone-section {
+  margin-bottom: 3rem;
 }
 
-.zenzone-controls label {
-  font-size: 15px;
-  font-weight: bold;
+/* ZenGarden.css */
+.zen-garden .bubble-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 40px);
+  gap: 10px;
+  justify-content: center;
 }
 
-.zenzone-controls select {
-  padding: 8px;
-  border-radius: 6px;
-  border: none;
-  background: #ffffffdd;
-  font-weight: 600;
-  color: #000;
-  width: 100%;
-}
-
-.zenzone-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.zenzone-buttons button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  background: #ffffffcc;
-  color: #000;
-  font-weight: 600;
+.bubble {
+  width: 40px;
+  height: 40px;
+  background: #eee;
+  border-radius: 50%;
+  box-shadow: inset 2px 2px 5px #ccc;
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.3s;
 }
 
-.zenzone-buttons button:hover {
-  background: #ffffffee;
+.bubble.popped {
+  background: #888;
+}
+
+/* SoothingSoundBoard.css */
+.soundboard {
+  text-align: center;
+}
+
+.sound-buttons button {
+  margin: 0.5rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #90caf9;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* LeafFallCanvas.css */
+.leaf-canvas {
+  background: #333;
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+}
+
+/* ZenSandRake.css */
+.rake-canvas {
+  background: #222;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+}
+
+/* WindSpinner.css */
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 8px solid #ccc;
+  border-top: 8px solid #90caf9;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* RipplePond.css */
+.ripple-pond {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #304ffe;
+  border-radius: 20px;
+  margin: auto;
+  overflow: hidden;
+  color: white;
+}
+
+.ripple-pond h2 {
+  margin: 0;
+  padding: 10px;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+/* Fullscreen background wrapper */
+.zen-zone-background {
+  margin-top: -70px;
+  translate:-20px;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(145deg, #e0f7fa, #f1f8e9);
+  background-image: url('/public/images/Zen-Zone.jpg');
+  background-size:contain;
+  background-position: center;
+  overflow-y: auto;
+  padding: 2rem 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.zen-glass {
+  position: relative;
+  top: 100px; /* adjust this value as needed */
+  margin: 0 auto;
+  width: 80%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Typography */
+.zen-zone-heading {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.zen-zone-subtext {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: #ffffff;
+}
+
+/* Game container spacing */
+.zen-zone-section {
+  margin-bottom: 3rem;
+}
+.zen-zone-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.zen-icon {
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.zen-icon:hover {
+  transform: scale(1.2);
+}
+/* Glassmorphic widget list container */
+.zen-zone-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem auto 2.5rem auto;
+  max-width: 480px;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+
+  /* Glassmorphic styles */
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: background 0.3s ease;
 }
