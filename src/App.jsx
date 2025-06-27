@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
-import './components/Login.css'; // 👈 import login style
-import Login from './components/Login'; // 👈 import login component
+import './components/Login.css'; 
+import Login from './components/Login'; 
 import Highlights from './components/Highlights';
 import AboutUs from './components/AboutUs';
 import ZenScribble from './features/ZenScribble';
@@ -229,5 +229,5 @@ return (
 </div>
 );
 };
-
+////////
 export default App;
