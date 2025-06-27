@@ -68,6 +68,7 @@ const PomodoroTimer = ({darkMode}) => {
   return (
     <div className={`pomodoro-wrapper ${darkMode ? 'dark':'light'}`}>
       <div className="pomodoro-container">
+        <h1 className="pomodoro-title">POMODORO TIMER</h1>
         <p className="timer-mode">{isWork ? 'Work Time' : 'Break Time'}</p>
         <div className="timer-display">
           {formatTime(minutes)}:{formatTime(seconds)}

@@ -1,0 +1,169 @@
+/* src/components/AiChatbot.css */
+
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Chatbot Button */
+.chatbot-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 32px;
+  transition: all 0.3s ease;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.chatbot-icon:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Chatbot Popup */
+.chatbot-container {
+  width: 450px;
+  max-height: 650px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.chatbot-container.open {
+  max-height: 650px;
+}
+
+/* Header */
+.chatbot-header {
+  background: rgba(18, 54, 196, 0.2);
+  color: white; /* 🔁 Changed from cyan to white */
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Main Body */
+.chatbot-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Bot Response */
+.chatbot-response {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 12px;
+  border-radius: 8px;
+  min-height: 60px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Input Section */
+.chatbot-input-container {
+  display: flex;
+  gap: 8px;
+}
+
+.chatbot-input-container input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.chatbot-input-container button {
+  padding: 8px 14px;
+  background-color: #20bdf1;  /* ✅ Updated Ask Button color */
+  color: rgba(255, 255, 255, 0.979);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.chatbot-input-container button:hover {
+  background-color: #20bdf1;
+}
+
+/* Message Bubble Layout */
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  max-height: 400px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Common Bubble */
+.chat-bubble {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Bot (Left) */
+.bot-bubble {
+  align-self: flex-start;
+  background: #ffffff;
+  color: #000;
+  border-top-left-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* User (Right) */
+.user-bubble {
+  align-self: flex-end;
+  background: #00d1d1;
+  color: #000;
+  border-top-right-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.bot-bubble em {
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
