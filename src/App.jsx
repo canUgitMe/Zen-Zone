@@ -13,6 +13,7 @@ import ZonaLize from './features/ZonaLize';
 import ZenWave from './features/ZenWave';
 import PomodoroTimer from './components/PomodoroTimer';
 import ZenZone from './features/ZenZone';
+import AiChatbot from './components/AiChatbot'; // adjust the path if needed
 
 const App = () => {
 const [isLoggedIn, setIsLoggedIn] = useState(false); // 👈 login state
@@ -141,6 +142,7 @@ Your browser does not support the video tag.
           <div className="zen-glass zen-quote-box">{getQuoteForToday()}</div>
           <PomodoroTimer darkMode={isDarkMode} />
         </div>
+        <AiChatbot/>
       </>
     );
   case 'highlights':

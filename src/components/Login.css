@@ -6,7 +6,7 @@ width: 100vw;
 display: flex;
 align-items: center;
 justify-content: center;
-background: url('C:\Zen-Zone\zen-zone\public\images\welcome-bg.jpg') no-repeat center center;
+background: url('/public/images/welcome-bg.jpg') no-repeat center center;
 background-size: cover;
 position: relative;
 overflow: hidden;
