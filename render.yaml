@@ -1,10 +1,11 @@
 services:
   # === Frontend (React App) ===
-  - type: static
+  - type: web
     name: zen-zone-frontend
-    env: static
+    env: node
+    rootDir: frontend   # <-- adjust if your React app is in a subfolder
     buildCommand: npm install && npm run build
-    publishPath: build
+    startCommand: npx serve -s build
     envVars:
       - key: REACT_APP_API_URL
         value: https://zen-zone-backend.onrender.com
@@ -19,10 +20,7 @@ services:
     buildCommand: npm install
     startCommand: node index.js
     envVars:
-      # Environment variables for backend
       - key: NODE_ENV
         value: production
-
-      # MongoDB Atlas connection string
       - key: MONGO_URI
         value: your_mongodb_atlas_connection_string_here
