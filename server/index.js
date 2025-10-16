@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');       // <-- added
 require('dotenv').config();
 
 const app = express();
@@ -60,10 +61,20 @@ mongoose.connect(process.env.MONGO_URI, {
 const feedbackRoutes = require('./feedback/feedback.routes');
 const userRoutes = require('./user.routes');
 
-app.use('/api/feedback', feedbackRoutes);  // POST /api/feedback
-app.use('/api/users', userRoutes);         // POST /api/users/login, /register
+app.use('/api/feedback', feedbackRoutes);
+app.use('/api/users', userRoutes);
+
+// ------------------- Serve React Frontend in Production -------------------
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  });
+}
+// -------------------------------------------------------------------------
 
 // ✅ Start Server
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });

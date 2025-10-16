@@ -124,7 +124,7 @@ const ZenWave = ({ darkMode, setPage }) => {
       {/* Back Button */}
       <div className="zenwave-back-btn" onClick={() => setPage('highlights')}>
         <ArrowLeft size={20} />
-        <span> ⬅ Back to Zones</span>
+        <span> Back to Zones</span>
       </div>
 
       <div className="zenwave-ui">
