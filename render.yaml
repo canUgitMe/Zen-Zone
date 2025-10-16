@@ -1,14 +1,13 @@
 services:
   # === Frontend (React App) ===
-  - type: web
+  - type: static
     name: zen-zone-frontend
-    env: node
+    env: static
     buildCommand: npm install && npm run build
-    startCommand: npx serve -s build
+    publishPath: build
     envVars:
       - key: REACT_APP_API_URL
         value: https://zen-zone-backend.onrender.com
-    staticPublishPath: build
     autoDeploy: true
     branch: main
 
